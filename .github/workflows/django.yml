@@ -31,5 +31,5 @@ jobs:
           if [ -f docker-compose.yml ]; then
             docker-compose --file docker-compose.yml build
             docker-compose --file docker-compose.yml up -d
-            docker-compose exec -T $IMAGE_NAME python3 manage.py test
+            docker-compose exec -T $IMAGE_NAME python3 /usr/src/app/manage.py test
           fi
