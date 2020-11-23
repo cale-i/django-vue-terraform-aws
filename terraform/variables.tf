@@ -31,7 +31,9 @@ variable "bucket_account_id" {
   }
 }
 
-variable "db_password" {}
+variable "db_password" {
+  default = "dummy_password"
+}
 
 data "aws_caller_identity" "current" {}
 
