@@ -8,10 +8,9 @@ const itemModule = {
     namespaced: true,
     state: {
         getURL:'list/books/',
-        // postURL:'post/books/',
         postURL:'post/books/',
         updateURL:'update/books/<pk>/',
-        deleteURL:'delete/books/<pk>/',
+        deleteURL:'delete/books/',
     },
     getters: {
         getURL: state => state.getURL,
@@ -23,8 +22,17 @@ const itemModule = {
 
     },
     actions: {
+        retlieve(context) {
+            return api({
+                method: 'get',
+                url: context.getters.getURL
+            })
+            .then(response => {
+                return response.data
+            })
+        },
         create(context, payload) {
-            var res = api({
+            return api({
                 method: 'post',
                 url: context.getters.postURL,
                 data: {
@@ -36,8 +44,16 @@ const itemModule = {
                 return response.data
                 
             })
-            return res
         },
+        delete(context, payload) {
+            return api({
+                method: 'delete',
+                url:context.getters.deleteURL + payload.item.id + '/',
+            })
+            .then(response => {
+                return response
+            })
+        }
     }
 }
 
