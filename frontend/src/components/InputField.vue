@@ -46,12 +46,6 @@
                 </b-row>
             </b-form>
         </b-container>
-
-
-        <b-card class="mt-3" header="Form Data Result">
-            <pre class="m-0">{{ form }}</pre>
-        </b-card>
-
     </div>
 </template>
 
@@ -106,8 +100,6 @@
 </script>
 
 <style scoped>
-    .input-id {
-        user-select: none;
-    }
+
 
 </style>
