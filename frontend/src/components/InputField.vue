@@ -80,7 +80,6 @@
                     }
                 )
                 .then(response => {
-                    console.log(response)
                     this.form.id = response.id
                     this.form.created_at = response.created_at
                 })
@@ -100,9 +99,7 @@
             }
         },
         computed: {
-            state() {
-                return Number.isFinite(this.price)
-            }
+
         }
 
     }
