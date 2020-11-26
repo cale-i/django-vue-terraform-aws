@@ -9,7 +9,7 @@ const itemModule = {
     state: {
         getURL:'list/books/',
         postURL:'post/books/',
-        updateURL:'update/books/<pk>/',
+        updateURL:'update/books/',
         deleteURL:'delete/books/',
     },
     getters: {
@@ -43,6 +43,19 @@ const itemModule = {
             .then(response => {
                 return response.data
                 
+            })
+        },
+        put(context, payload) {
+            return api({
+                method: 'put',
+                url: context.getters.updateURL + payload.id + '/',
+                data: {
+                    id: payload.id,
+                    title: payload.title,
+                    price: payload.price,
+                    created_at: payload.created_at,
+
+                }
             })
         },
         delete(context, payload) {
