@@ -69,11 +69,35 @@ const itemModule = {
         }
     }
 }
+const chartModule = {
+    namespaced: true,
+    state: {
+        chartURL:'',
+    },
+    getters: {
+        chartURL: state => state.chartURL,
+    },
+    mutations: {
+
+    },
+    actions: {
+        getChart(context) {
+            return api({
+                method: 'get',
+                url: context.getters.chartURL
+            })
+            .then(response => {
+                return response.data
+            })
+        },
+    }
+}
 
 
 const store = new Vuex.Store({
     modules: {
-        item: itemModule
+        item: itemModule,
+        chart:chartModule
     }
 })
 
