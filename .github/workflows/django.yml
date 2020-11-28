@@ -33,7 +33,7 @@ jobs:
             docker-compose --file docker-compose.yml up -d
 
             for ((i=0; i<15; i++)); do
-              if [ ! -e .env ]; then
+              if [ ! -e /usr/src/app/.env ]; then
                 echo "No .env file exist"
                 sleep 1
               else
